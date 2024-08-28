@@ -10,7 +10,7 @@ with open('extracted_tickers.json', 'r') as file:
     data = json.load(file)
 
 ignored_tokens = {
-    "USDT", "USDC", "BUSD", "DAI", "TUSD", "PAX", "BCH", "ETH", "BTC", "XRP", "SOL", "USD", "M", "FDUSD"
+    "USDT", "USDC", "BUSD", "DAI", "TUSD", "PAX", "BCH", "ETH", "BTC", "XRP", "SOL", "USD", "M", "FDUSD", "BNB"
 }
 
 news_data = []
@@ -20,7 +20,7 @@ for entry in data:
     tickers = entry['tickers']
     filtered_tickers = [ticker for ticker in tickers if ticker not in ignored_tokens]
     
-    if filtered_tickers:  # Only proceed if there are valid tickers found
+    if filtered_tickers:  
         news_data.append(entry['news'])
         tickers_data.append(filtered_tickers)
 
