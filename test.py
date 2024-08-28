@@ -1,6 +1,7 @@
 import requests
 import json
 
+#check baki
 base_url = "https://www.binance.com/bapi/composite/v1/public/cms/article/catalog/list/query"
 catalog_id = "48"
 page_size = 50
@@ -21,7 +22,6 @@ for page_no in range(1, total_pages + 1):
     else:
         print(f"Failed to fetch page {page_no}: {response.status_code}")
 
-# Save the titles to a JSON file
 with open('binance_article_titles.json', 'w') as file:
     json.dump(titles, file, indent=4)
 
